@@ -1,0 +1,54 @@
+html {
+height: 100%   
+}
+#header {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    max-width: 900px;
+    max-width: 900px;
+    background-color: skyblue;
+}
+p {
+    background-color: pink;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(16, 55px);
+    grid-template-rows: repeat(16, 55px);
+    background-color: lavenderblush;
+    align-items: center;
+    max-width: 900px;
+    max-width: 900px;
+}
+
+.item {
+    
+    height: 30px;
+    width: 30px;
+    background-color: rgb(102, 191, 226);
+    border-style: solid;
+    border-color: black;
+    border-width: 0.1px;
+    margin: 1px;
+}
+
+.hover {
+    background-color: pink;
+}
+
+.item:hover {
+    transform: scale(1.5,1.5);
+}
+
+#inputBtn {
+    height: auto;
+    width: auto;
+    border-style: solid;
+}
+
+button {
+    background-color: black;
+}
+
