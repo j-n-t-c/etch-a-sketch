@@ -13,18 +13,67 @@ p {
     background-color: pink;
 }
 
-#container {
+.first {
     display: grid;
-    grid-template-columns: repeat(16, 55px);
-    grid-template-rows: repeat(16, 55px);
+    grid-template-columns: repeat(2, 30px);
+    grid-template-rows: repeat(2, 30px);
     background-color: lavenderblush;
+    justify-items: center;
     align-items: center;
     max-width: 900px;
     max-width: 900px;
+    padding: 50px;
+}
+
+.second {
+    display: grid;
+    grid-template-columns: repeat(4, 30px);
+    grid-template-rows: repeat(4, 30px);
+    background-color: lavenderblush;
+    justify-items: center;
+    align-items: center;
+    max-width: 900px;
+    max-width: 900px;
+    padding: 50px;
+}
+
+.third {
+    display: grid;
+    grid-template-columns: repeat(8, 30px);
+    grid-template-rows: repeat(8, 30px);
+    background-color: lavenderblush;
+    justify-items: center;
+    align-items: center;
+    max-width: 900px;
+    max-width: 900px;
+    padding: 50px;
+}
+
+.fourth {
+    display: grid;
+    grid-template-columns: repeat(16, 30px);
+    grid-template-rows: repeat(16, 30px);
+    background-color: lavenderblush;
+    justify-items: center;
+    align-items: center;
+    max-width: 900px;
+    max-width: 900px;
+    padding: 50px;
+}
+
+.fourth {
+    display: grid;
+    grid-template-columns: repeat(32, 30px);
+    grid-template-rows: repeat(32, 30px);
+    background-color: lavenderblush;
+    justify-items: center;
+    align-items: center;
+    max-width: 900px;
+    max-width: 900px;
+    padding: 50px;
 }
 
 .item {
-    
     height: 30px;
     width: 30px;
     background-color: rgb(102, 191, 226);
@@ -34,7 +83,8 @@ p {
     margin: 1px;
 }
 
-.hover {
+
+.hov {
     background-color: pink;
 }
 
@@ -48,7 +98,4 @@ p {
     border-style: solid;
 }
 
-button {
-    background-color: black;
-}
 
