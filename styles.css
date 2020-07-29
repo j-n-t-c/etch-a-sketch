@@ -74,11 +74,11 @@ p {
 }
 
 .item {
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     background-color: rgb(102, 191, 226);
-    border-style: solid;
-    border-color: black;
+    border-style: none;
+    border-color: none;
     border-width: 0.1px;
 }
 
