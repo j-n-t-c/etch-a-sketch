@@ -8,14 +8,130 @@ var divItem
 var divArray
 var hovItem 
 var hovArray = [];
-var colorArray = ['aqua', 'brown', 'chartreuse', 'darkolivegreen', 'fuchsia', 'goldenrod',
-    'hotpink', 'indianred', 'khaki', 'limegreen', 'mediumslateblue', 'navy', 'orange', 'peru',
-     'royalblue', 'silver', 'teal', 'violet', 'wheat', 'yellow']
+var colorArray = [
+    "Aqua",
+    "Aquamarine",
+    "Beige",
+    "Bisque",
+    "Blue",
+    "BlueViolet",
+    "Brown",
+    "BurlyWood",
+    "CadetBlue",
+    "Chartreuse",
+    "Chocolate",
+    "Coral",
+    "CornflowerBlue",
+    "Cornsilk",
+    "Crimson",
+    "Cyan",
+    "DarkBlue",
+    "DarkCyan",
+    "DarkGoldenRod",
+    "DarkGray",
+    "DarkGrey",
+    "DarkGreen",
+    "DarkKhaki",
+    "DarkMagenta",
+    "DarkOliveGreen",
+    "DarkOrange",
+    "DarkOrchid",
+    "DarkRed",
+    "DarkSalmon",
+    "DarkSeaGreen",
+    "DarkSlateBlue",
+    "DarkSlateGray",
+    "DarkSlateGrey",
+    "DarkTurquoise",
+    "DarkViolet",
+    "DeepPink",
+    "DeepSkyBlue",
+    "DodgerBlue",
+    "FireBrick",
+    "ForestGreen",
+    "Fuchsia",
+    "Gold",
+    "GoldenRod",
+    "Gray",
+    "Grey",
+    "Green",
+    "GreenYellow",
+    "HoneyDew",
+    "HotPink",
+    "IndianRed",
+    "Indigo",
+    "Khaki",
+    "Lavender",
+    "LavenderBlush",
+    "LawnGreen",
+    "LemonChiffon",
+    "Lime",
+    "LimeGreen",
+    "Magenta",
+    "Maroon",
+    "MediumAquaMarine",
+    "MediumBlue",
+    "MediumOrchid",
+    "MediumPurple",
+    "MediumSeaGreen",
+    "MediumSlateBlue",
+    "MediumSpringGreen",
+    "MediumTurquoise",
+    "MediumVioletRed",
+    "MidnightBlue",
+    "MistyRose",
+    "Moccasin",
+    "Navy",
+    "OldLace",
+    "Olive",
+    "OliveDrab",
+    "Orange",
+    "OrangeRed",
+    "Orchid",
+    "PaleGoldenRod",
+    "PaleGreen",
+    "PaleTurquoise",
+    "PaleVioletRed",
+    "PapayaWhip",
+    "PeachPuff",
+    "Peru",
+    "Pink",
+    "Plum",
+    "PowderBlue",
+    "Purple",
+    "RebeccaPurple",
+    "Red",
+    "RosyBrown",
+    "RoyalBlue",
+    "SaddleBrown",
+    "Salmon",
+    "SandyBrown",
+    "SeaGreen",
+    "SeaShell",
+    "Sienna",
+    "Silver",
+    "SkyBlue",
+    "SlateBlue",
+    "SlateGray",
+    "SlateGrey",
+    "SpringGreen",
+    "SteelBlue",
+    "Tan",
+    "Teal",
+    "Thistle",
+    "Tomato",
+    "Turquoise",
+    "Violet",
+    "Wheat",
+    "Yellow",
+    "YellowGreen",
+  ];
 var rgb = []
-var numInput = 4
+var inputRows = 2
+var inputColumns = 2
+var numInput = inputRows * inputColumns
 var complete = false
 var changeCount = 0
-
 
         /*~~~~~~~~~~random color functions~~~~~~~~~~*/
 const randomColor = function(){
@@ -37,32 +153,59 @@ const randomColor2 = function(){
 const changes = function() {
     switch(changeCount) {
         case 1:
-        instructions.innerHTML = ('LEVEL 2: Do it two more times!');
+        instructions.innerHTML = ('level 2');
         removeDivs();
-        numInput = 16;
-        containerDiv.className = ('second');
+        inputRows *= 2;
+        inputColumns *= 2;
+        numInput = inputRows * inputColumns;
+        containerDiv.style.gridTemplateRows = `repeat(${inputRows}, 1fr)`;
+        containerDiv.style.gridTemplateColumns = `repeat(${inputColumns}, 1fr)`;
         createDivs(numInput);
+        divArray.forEach(function(item){
+            item.classList.add("case1");
+            item.classList.remove("case0");})
+          break;
+        case 2:
+        instructions.innerHTML = ('level 3');
+        removeDivs();
+        inputRows *= 2;
+        inputColumns *= 2;
+        numInput = inputRows * inputColumns;
+        containerDiv.style.gridTemplateRows = `repeat(${inputRows}, 1fr)`;
+        containerDiv.style.gridTemplateColumns = `repeat(${inputColumns}, 1fr)`;
+        createDivs(numInput);
+        divArray.forEach(function(item){
+            item.classList.add("case2");
+            item.classList.remove("case0");})
           break;
         case 3:
-        instructions.innerHTML = ('LEVEL 3: DO IT AGAIN!');
+        instructions.innerHTML = ('level 4');
         removeDivs();
-        numInput = 64;
-        containerDiv.className = ('third');
+        inputRows *= 2;
+        inputColumns *= 2;
+        numInput = inputRows * inputColumns;
+        containerDiv.style.gridTemplateRows = `repeat(${inputRows}, 30px)`;
+        containerDiv.style.gridTemplateColumns = `repeat(${inputColumns}, 30px)`;
         createDivs(numInput);
-          break;
-        case 4:
-        instructions.innerHTML = ('LEVEL 4: ONE MORE TIME AND YOU UNLOCK PSYCHEDELIC MODE!');
-        removeDivs();
-        numInput = 256;
-        containerDiv.className = ('fourth');
-        createDivs(numInput);
+        divArray.forEach(function(item){
+            item.classList.add("case3");
+            item.classList.remove("case0");})
         break;
-        case 5:
-        instructions.innerHTML = ('LEVEL 4: ONE MORE TIME AND YOU UNLOCK PSYCHEDELIC MODE!');
+        case 4:
+        instructions.innerHTML = ('enter a grid size or change color');
         removeDivs();
-        numInput = 1024;
-        containerDiv.className = ('fifth');
+        inputRows *= 2;
+        inputColumns *= 2;
+        numInput = inputRows * inputColumns;
+        containerDiv.style.gridTemplateRows = `repeat(${inputRows}, 30px)`;
+        containerDiv.style.gridTemplateColumns = `repeat(${inputColumns}, 30px)`;
         createDivs(numInput);
+        divArray.forEach(function(item){
+            item.classList.add("case4");
+            item.classList.remove("case0");})
+        box.style.visibility = "visible";
+        submit.style.visibility = "visible";
+        resetBtn.style.visibility = "visible";
             break;
         /*case y:
           // code block
@@ -73,10 +216,14 @@ const changes = function() {
 }
         /*~~~~~~~~~~CREATES DIVS and assigns mouseover functions~~~~~~~~~~*/
 const createDivs = function(number) {
+    containerDiv.style.gridTemplateRows = `repeat(${inputRows}, 1fr)`;
+    containerDiv.style.gridTemplateColumns = `repeat(${inputColumns}, 1fr)`;
     for (let i = 0; i < (number); i++){
     var newDiv = document.createElement('div'); //creates newDiv
     newDiv.className = 'item'; //gives each class name item 
-    newDiv.className += ' item' + i; //gives individual item number classes
+    newDiv.className += ' case0' + (' item' + i); //gives individual item number classes
+    newDiv.style.width = 400 / inputRows - 2 + 'px';
+    newDiv.style.height = 400 / inputColumns - 2 + 'px';
     containerDiv.appendChild(newDiv); //puts them in
 }
     divItem = document.getElementsByClassName('item');
@@ -104,10 +251,35 @@ const createDivs = function(number) {
 
 createDivs(numInput);
 
+
         /*~~~~~~~~~~USER INTERFACE variables~~~~~~~~~~*/
 var resetBtn = document.getElementById('reset');
-var userInput = document.createElement("input");
-var inputBtn = document.createElement("button");
+/*var userInput = document.createElement("input");
+var userInput2 = document.createElement("input2");
+var inputBtn = document.createElement("button");*/
+
+
+        /*~~~~~~~~~~HIDE submit and reset buttons on load~~~~~~~~~~*/
+        var box = document.getElementById("userInput");
+        box.style.visibility = "hidden";
+        var submit = document.getElementById("inputBtn");
+        submit.style.visibility = "hidden";
+        resetBtn.style.visibility = "hidden";
+
+
+/*~~~~~~~~~~INSERT text boxes and button~~~~~~~~~~  NOW IN HTML*/
+        /*userInput.setAttribute("type", "text");
+        userInput.setAttribute("placeholder", "rows");
+        userInput.id="userInput";
+        headerDiv.appendChild(userInput);
+        userInput2.setAttribute("type", "text");
+        userInput2.setAttribute("placeholder", "columns");
+        userInput2.id="userInput2";
+        headerDiv.appendChild(userInput2);
+        inputBtn.setAttribute("type", "button");
+        inputBtn.id="inputBtn";
+        inputBtn.innerHTML = 'Submit!'; 
+        headerDiv.appendChild(inputBtn);*/
 
         /*~~~~~~~~~~REMOVES ALL DIVS when called~~~~~~~~~~*/
 const removeDivs = function() { //loops through array of newDivs and deletes each one
@@ -117,30 +289,36 @@ const removeDivs = function() { //loops through array of newDivs and deletes eac
         /*~~~~~~~~~~RESET FUNCTION~~~~~~~~~~*/
 const reset = function() {
         removeDivs();
-        userInput.setAttribute("type", "text");
-        userInput.setAttribute("placeholder", "Input # of rows and columns");
-        userInput.id="userInput";
-        headerDiv.appendChild(userInput); //puts input box on page
-        inputBtn.setAttribute("type", "button");
-        inputBtn.id="inputBtn";
-        inputBtn.innerHTML = 'Submit!'; //puts input button on page
-        headerDiv.appendChild(inputBtn);
 }
 
-        /*~~~~~~~~~~RESET BUTTON~~~~~~~~~~*/
+        /*~~~~~~~~~~CHANGE COLOR RESET BUTTON~~~~~~~~~~*/
     resetBtn.addEventListener('click', function(){
         reset();
         createDivs(numInput);
+        divArray.forEach(function(item){
+            item.classList.add("caseCustom");
+            item.classList.remove("case0");})
     });
 
         /*~~~~~~~~~~SUBMIT BUTTON~~~~~~~~~~*/
+
+        
     inputBtn.addEventListener('click', function(number){
-      if (isNaN(userInput.value)) { //checks if input is number
-        alert('You must enter a valid number!')
-      } else {
+        console.log('ok');
+      if (isNaN(userInput.value) || userInput.value < 1) {
+        alert('You must enter a valid number!');
+      } else if (userInput.value > 30) { 
+        alert('Whoa! Let\'s keep it at 30 or below!');
+      }
+        else {
           reset();
-        numInput = (Number(userInput.value))
-        createDivs(numInput); //creates number of boxes based on input
+          inputRows = (Number(userInput.value));
+          inputColumns = (Number(userInput.value));
+          numInput = inputRows * inputColumns;
+        createDivs(numInput);
+        divArray.forEach(function(item){
+            item.classList.add("caseCustom");
+            item.classList.remove("case0");}) //creates number of boxes based on input
     }})
 
     /*RELOAD BUTTON IF NEEDED (change button, not reset)
